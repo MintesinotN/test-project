@@ -55,9 +55,13 @@ export async function POST(req: Request) {
   }
 
   try {
+
+    const response: AxiosResponse<ExchangeRateResponse> = await axios.get(
+      `https://v6.exchangerate-api.com/v6/${process.env.EXCHANGE_RATE_API_KEY}/latest/USD`
+    );
     
     // Use mocked data
-    const response: { data: ExchangeRateResponse } = { data };
+    // const response: { data: ExchangeRateResponse } = { data };
 
     // Validate API response
     console.log('ExchangeRate-API response:', response.data); // Log response
